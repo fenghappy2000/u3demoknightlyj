@@ -9,7 +9,8 @@ public enum HostType
 
 
 public static class GlobalVariables {
-    public static bool mobileUIOnPC = false;
+    //public static bool mobileUIOnPC = false;
+	public static bool mobileUIOnPC = true;
 
     public static Player localPlayer = null;
     public static HostType hostType = HostType.Server;

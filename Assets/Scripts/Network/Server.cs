@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Protocol;
 
+#pragma warning disable 618
+
 public static class Server
 {
     public static event OnDateEvent onDataEvent = null;

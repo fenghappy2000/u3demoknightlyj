@@ -209,7 +209,7 @@ public partial class Player : MonoBehaviour
     {
         if (playerType == PlayerType.Remote || playerType == PlayerType.LocalAI)
         {
-            SkinnedMeshRenderer sm = transform.FindChild("RPG-Character-Mesh").GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer sm = transform.Find("RPG-Character-Mesh").GetComponent<SkinnedMeshRenderer>();
             sm.material = enemyMat;
         }
     }

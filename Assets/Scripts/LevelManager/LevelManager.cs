@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Protocol;
 
+#pragma warning disable 618
+
 public enum ControllerType
 {
     Unknown,

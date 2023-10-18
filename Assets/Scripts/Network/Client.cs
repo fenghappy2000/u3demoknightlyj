@@ -4,6 +4,8 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using Protocol;
 
+#pragma warning disable 618
+
 public delegate void OnDateEvent(GameMsg msg, int connection);
 public delegate void OnConnectEvent(int connection);
 public delegate void OnDisconnectEvent(int connection);

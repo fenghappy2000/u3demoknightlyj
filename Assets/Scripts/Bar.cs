@@ -20,10 +20,10 @@ public class Bar : MonoBehaviour
     {
         if (!init)
         {
-            rtBorder = transform.FindChild("Border") as RectTransform;
-            rtEmpty = transform.FindChild("Empty") as RectTransform;
-            rtLost = transform.FindChild("Lost") as RectTransform;
-            rtPoint = transform.FindChild("XPoint") as RectTransform;
+            rtBorder = transform.Find("Border") as RectTransform;
+            rtEmpty = transform.Find("Empty") as RectTransform;
+            rtLost = transform.Find("Lost") as RectTransform;
+            rtPoint = transform.Find("XPoint") as RectTransform;
 
             imgBorder = rtBorder.GetComponent<Image>();
             imgEmpty = rtEmpty.GetComponent<Image>();

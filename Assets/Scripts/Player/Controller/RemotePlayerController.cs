@@ -6,11 +6,11 @@ public class RemotePlayerController : MonoBehaviour
 {
     Rigidbody rigidBody = null;
     Player player = null;
-    Collider collider = null;
+    Collider m_collider = null;
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        m_collider = GetComponent<Collider>();
         rigidBody.useGravity = false;
         player = GetComponent<Player>();
         groundLayerMask = 1 << LayerMask.NameToLayer(StringAssets.groundLayerName);
@@ -67,12 +67,12 @@ public class RemotePlayerController : MonoBehaviour
 
         if (curLowerAniStateHash == Player.StateNameHash.die)
         {
-            collider.isTrigger = true;
+            m_collider.isTrigger = true;
             rigidBody.isKinematic = true;
         }
         else
         {
-            collider.isTrigger = false;
+            m_collider.isTrigger = false;
             rigidBody.isKinematic = false;
         }
     }

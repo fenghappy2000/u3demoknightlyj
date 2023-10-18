@@ -55,18 +55,18 @@ public class MessageBox : MonoBehaviour {
             
             if(buttonText != null)
             {
-                Text t = btnConfirm.transform.FindChild("Text").GetComponent<Text>();
+                Text t = btnConfirm.transform.Find("Text").GetComponent<Text>();
                 t.text = buttonText[0];
 
-                t = btnCancel.transform.FindChild("Text").GetComponent<Text>();
+                t = btnCancel.transform.Find("Text").GetComponent<Text>();
                 t.text = buttonText[1];
             }
             else
             {
-                Text t = btnConfirm.transform.FindChild("Text").GetComponent<Text>();
+                Text t = btnConfirm.transform.Find("Text").GetComponent<Text>();
                 t.text = "确定";
 
-                t = btnCancel.transform.FindChild("Text").GetComponent<Text>();
+                t = btnCancel.transform.Find("Text").GetComponent<Text>();
                 t.text = "取消";
             }
         }
@@ -84,18 +84,18 @@ public class MessageBox : MonoBehaviour {
 
             if (buttonText != null)
             {
-                Text t = btnConfirm.transform.FindChild("Text").GetComponent<Text>();
+                Text t = btnConfirm.transform.Find("Text").GetComponent<Text>();
                 t.text = buttonText[0];
             }
             else
             {
-                Text t = btnConfirm.transform.FindChild("Text").GetComponent<Text>();
+                Text t = btnConfirm.transform.Find("Text").GetComponent<Text>();
                 t.text = "确定";
             }
         }
 
         //设置文字内容
-        Transform msgWnd = transform.FindChild("Message");
+        Transform msgWnd = transform.Find("Message");
         Text txt = msgWnd.GetComponent<Text>();
         txt.text = msg;
         
