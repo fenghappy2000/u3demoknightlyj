@@ -5,10 +5,10 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class CameraControl : MonoBehaviour
 {
-    new Camera camera;
+    Camera m_camera;
     void Awake()
     {
-        camera = GetComponent<Camera>();
+        m_camera = GetComponent<Camera>();
     }
 
     Vector3 colisionBox;
@@ -17,9 +17,9 @@ public class CameraControl : MonoBehaviour
     {
         noColPos = transform.position;
 
-        float halfFov = camera.fieldOfView * 0.5f * Mathf.Deg2Rad;
-        colisionBox.y = camera.nearClipPlane * Mathf.Tan(halfFov) + 0.05f;
-        colisionBox.x = colisionBox.y * camera.aspect + 0.05f;
+        float halfFov = m_camera.fieldOfView * 0.5f * Mathf.Deg2Rad;
+        colisionBox.y = m_camera.nearClipPlane * Mathf.Tan(halfFov) + 0.05f;
+        colisionBox.x = colisionBox.y * m_camera.aspect + 0.05f;
         colisionBox.z = 0.02f;
     }
 
@@ -297,7 +297,7 @@ public class CameraControl : MonoBehaviour
             distance = hit.distance;
             normalViewPos = watchPoint - watchDir * distance;
         }
-        normalViewPos = watchPoint - watchDir * distance - rotation * Vector3.forward * camera.nearClipPlane;
+        normalViewPos = watchPoint - watchDir * distance - rotation * Vector3.forward * m_camera.nearClipPlane;
 
         //调整镜头角度和位置
         transform.rotation = rotation;
@@ -341,7 +341,7 @@ public class CameraControl : MonoBehaviour
         if (b < 0.5f)
             backPos += Vector3.up * (1 - b * 2) * 1.1f;
 
-        Vector3 rightPos = rightColDir * rightDistance - cameraRot * Vector3.forward * camera.nearClipPlane;
+        Vector3 rightPos = rightColDir * rightDistance - cameraRot * Vector3.forward * m_camera.nearClipPlane;
         shootViewPos = backPos + rightPos;
         transform.rotation = cameraRot;
     }

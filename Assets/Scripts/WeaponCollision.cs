@@ -4,21 +4,21 @@ using System.Collections;
 
 public class WeaponCollision : MonoBehaviour
 {
-    new Collider collider = null;
+    Collider m_collider = null;
     void Awake()
     {
-        collider = GetComponent<Collider>();
+        m_collider = GetComponent<Collider>();
     }
 
     public bool colliderEanbled
     {
         set
         {
-            collider.enabled = value;
+            m_collider.enabled = value;
         }
         get
         {
-            return collider.enabled;
+            return m_collider.enabled;
         }
     }
 
