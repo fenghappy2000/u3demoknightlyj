@@ -10,3 +10,11 @@
 *.suo
 log.txt
 output_log.txt
+/Assembly-CSharp-Editor.csproj
+/Assembly-CSharp-firstpass.csproj
+/u3demoknightlyj.sln
+/.vs
+/Logs
+/UserSettings
+/.vsconfig
+/Assembly-CSharp.csproj
