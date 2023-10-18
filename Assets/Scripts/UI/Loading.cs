@@ -64,7 +64,7 @@ public class Loading : MonoBehaviour
             {
                 count = 0;
                 float progress = Mathf.Min(asyncOperation.progress, totalTime * 0.5f);
-                if (progress < 0.9f)
+                if (asyncOperation.isDone == false && progress < 0.9f)
                 {
                     txtTips.text = string.Format("加载中: {0:0%}", progress);
                 }
