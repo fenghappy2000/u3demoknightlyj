@@ -15,7 +15,10 @@ public class StartMenu : MonoBehaviour
     [SerializeField]
     Button btnQuit = null;
 
-    void Awake()
+	[SerializeField]
+    Text txtInfo = null;
+    
+	void Awake()
     {
         btnJoin.onClick.AddListener(this.OnJoinClick);
         btnCreate.onClick.AddListener(this.OnCreateClick);
@@ -39,7 +42,7 @@ public class StartMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+		txtInfo.text = string.Format("分辩率:{0}x{1}", Screen.width, Screen.height);
     }
 
     bool useDefaultIpAndPort = false;
@@ -103,6 +106,12 @@ public class StartMenu : MonoBehaviour
 
     void OnQuitClick()
     {
-        Application.Quit();
+			if(Application.isEditor) {
+#if UNITY_EDITOR
+				UnityEditor.EditorApplication.ExitPlaymode();
+#endif
+			} else {
+				Application.Quit();
+			}
     }
 }

@@ -10,6 +10,8 @@ public class GamePlayMenu : MonoBehaviour {
     Button btnCleraAI = null;
     [SerializeField]
     Button btnExit = null;
+	[SerializeField]
+    Button btnQuit = null;
     [SerializeField]
     Button btnClose = null;
     void Awake()
@@ -29,6 +31,7 @@ public class GamePlayMenu : MonoBehaviour {
             btnCleraAI.gameObject.SetActive(false);
         }
         btnExit.onClick.AddListener(this.OnExitClick);
+		btnQuit.onClick.AddListener(this.OnQuitClick);
         btnClose.onClick.AddListener(this.OnCloseClick);
     }
 
@@ -55,6 +58,7 @@ public class GamePlayMenu : MonoBehaviour {
         }
 
         btnExit.onClick.RemoveListener(this.OnExitClick);
+		btnQuit.onClick.RemoveListener(this.OnQuitClick);
         btnClose.onClick.RemoveListener(this.OnCloseClick);
     }
 
@@ -85,10 +89,13 @@ public class GamePlayMenu : MonoBehaviour {
     void OnExitClick()
     {
         UIManager um = UnityHelper.GetUIManager();
-        um.MessageBox("退出游戏?", true, this.MsgBoxCb);
+        um.MessageBox("回到大厅?", true, this.MsgBoxCb);
     }
-
-
+	void OnQuitClick()
+	{
+		UIManager um = UnityHelper.GetUIManager();
+        um.MessageBox("退出进程?", true, this.MsgBoxCbQuit);
+	}
     void MsgBoxCb(bool confirm)
     {
         if (confirm)
@@ -96,7 +103,19 @@ public class GamePlayMenu : MonoBehaviour {
             UnityHelper.LoadSceneAsync(StringAssets.mainMenuSceneName);
         }
     }
-
+	void MsgBoxCbQuit(bool confirm)
+    {
+        if (confirm)
+        {
+			if(Application.isEditor) {
+#if UNITY_EDITOR
+				UnityEditor.EditorApplication.ExitPlaymode();
+#endif
+			} else {
+				Application.Quit();
+			}
+        }
+    }
     void OnCloseClick()
     {
         gameObject.SetActive(false);

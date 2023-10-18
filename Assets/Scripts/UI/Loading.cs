@@ -60,7 +60,7 @@ public class Loading : MonoBehaviour
         if (state == LoadingState.Loading)
         {
             count++;
-            if (count > 5)  //不要每一帧都处理  
+            if (count > 0)  //不要每一帧都处理  
             {
                 count = 0;
                 float progress = Mathf.Min(asyncOperation.progress, totalTime * 0.5f);

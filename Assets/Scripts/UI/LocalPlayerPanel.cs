@@ -34,6 +34,8 @@ public class LocalPlayerPanel : MonoBehaviour {
                 ratio = 1f;
             energyBar.SetRatio(ratio);
         }
+
+		txtName.text = string.Format("分辩率:{0}x{1}", Screen.width, Screen.height);
     }
 
     Player localPlayer = null;
